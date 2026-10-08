@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Entertainment and Digital Experiences - Main Project Hub">
+  <title>Entertainment Hub | Main Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <a class="logo" href="index.html" aria-label="Entertainment Hub home">✦ Entertainment Hub</a>
+    <nav aria-label="Main navigation">
+      <a href="#members">Members</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">MAIN PROJECT • ENTERTAINMENT & DIGITAL EXPERIENCES</p>
+        <h1>Interactive Entertainment UI Collection</h1>
+        <p class="hero-text">A single working entry point for all member projects. Choose a member to explore their responsive HTML, CSS and JavaScript experiences.</p>
+        <a class="primary-btn" href="#members">Explore Projects <span>→</span></a>
+      </div>
+      <div class="hero-card" aria-label="Project technologies">
+        <div class="orb">✦</div>
+        <span>HTML • CSS • JavaScript</span>
+        <strong>Fully Linked Project Hub</strong>
+        <small>5 member collections • multiple interactive pages</small>
+      </div>
+    </section>
+
+    <section id="members" class="projects-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PROJECT COLLECTION</p>
+          <h2>Choose a Member</h2>
+        </div>
+        <span id="projectCount" class="status">● 5 Collections</span>
+      </div>
+
+      <div class="search-row">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="projectSearch" type="search" placeholder="Search member or project..." autocomplete="off">
+        </label>
+        <button id="showAll" class="secondary-btn" type="button">Show All</button>
+      </div>
+
+      <div id="memberGrid" class="project-grid">
+        <article class="project-card" data-search="member 1 tanu cinego streambox tunewave eventify movies ott music events">
+          <div class="project-icon">🎬</div>
+          <p class="project-type">MEMBER 1</p>
+          <h3>Tanu • Entertainment UI</h3>
+          <p>CineGo, StreamBox, TuneWave and Eventify experiences.</p>
+          <a href="tanu mem1/index.html" class="project-btn">Open Member 1 <span>→</span></a>
+        </article>
+
+        <article class="project-card" data-search="member 2 karthik gamezone podsphere livepass creatorhub gaming podcast concert creator">
+          <div class="project-icon">🎮</div>
+          <p class="project-type">MEMBER 2</p>
+          <h3>Karthik • Entertainment UI</h3>
+          <p>GameZone, PodSphere, LivePass and CreatorHub experiences.</p>
+          <a href="karthik mem2/index.html" class="project-btn">Open Member 2 <span>→</span></a>
+        </article>
+
+        <article class="project-card" data-search="member 3 lokesh aniverse bookbeat sportpulse cineclub anime audiobook sports cinema">
+          <div class="project-icon">🎧</div>
+          <p class="project-type">MEMBER 3</p>
+          <h3>Lokesh • Entertainment UI</h3>
+          <p>AniVerse, BookBeat, SportPulse and CineClub experiences.</p>
+          <a href="lokesh mem3/index.html" class="project-btn">Open Member 3 <span>→</span></a>
+        </article>
+
+        <article class="project-card" data-search="member 4 akshay foodiego travelmate fitlife photoverse food travel fitness photo">
+          <div class="project-icon">✈️</div>
+          <p class="project-type">MEMBER 4</p>
+          <h3>Akshay • Entertainment UI</h3>
+          <p>FoodieGo, TravelMate, FitLife and PhotoVerse experiences.</p>
+          <a href="akshay mem4/index.html" class="project-btn">Open Member 4 <span>→</span></a>
+        </article>
+
+        <article class="project-card" data-search="rishi main project rishi collection ui templates">
+          <div class="project-icon">✨</div>
+          <p class="project-type">MAIN COLLECTION</p>
+          <h3>Rishi • Main Project</h3>
+          <p>Rishi's complete UI template collection and project links.</p>
+          <a href="Rishi_mainproject/index.html" class="project-btn">Open Rishi Project <span>→</span></a>
+        </article>
+      </div>
+
+      <p id="noResults" class="no-results" hidden>No matching project found.</p>
+    </section>
+
+    <section id="about" class="about-card">
+      <p class="eyebrow">ABOUT THIS PROJECT</p>
+      <h2>One main entry point, all experiences connected.</h2>
+      <p>Use this page as the starting point for the submission. Every member folder keeps its own index, stylesheet and JavaScript, while this main page provides the central navigation.</p>
+    </section>
+  </main>
+
+  <footer>Entertainment Hub • Main Project • HTML • CSS • JavaScript</footer>
+  <script src="script.js"></script>
+</body>
+</html>

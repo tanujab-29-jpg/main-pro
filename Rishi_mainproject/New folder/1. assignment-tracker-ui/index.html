@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Academia — Assignment Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-mark">A</div><div><b>ACADEMIA</b><span>Student OS</span></div></div>
+    <button class="mobile-close" id="closeSidebar" aria-label="Close menu">×</button>
+    <nav class="nav">
+      <button class="nav-item active" data-view="dashboard">⌂ <span>Dashboard</span></button>
+      <button class="nav-item" data-view="assignments">▣ <span>Assignments</span><em id="navCount">0</em></button>
+      <button class="nav-item" data-view="calendar">▦ <span>Calendar</span></button>
+      <button class="nav-item" data-view="analytics">◈ <span>Analytics</span></button>
+      <button class="nav-item" data-view="focus">◉ <span>Focus Mode</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <button class="side-action" id="openCommand">⌘ <span>Command palette</span><kbd>Ctrl K</kbd></button>
+      <div class="student-card"><div class="avatar">RS</div><div><b>S. Rishitha Sri</b><span>Computer Science</span></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="openSidebar">☰</button>
+      <div><p class="eyebrow" id="greeting">GOOD AFTERNOON</p><h1 id="viewTitle">Academic Command Center</h1></div>
+      <div class="top-actions">
+        <button class="icon-btn" id="notifyBtn" title="Notifications">♢<span class="notification-dot" id="notificationDot"></span></button>
+        <button class="primary-btn" id="addBtn">＋ Add Assignment</button>
+      </div>
+    </header>
+
+    <section class="view active" id="dashboardView">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div><span class="pill purple">SEMESTER 05</span><h2>Stay ahead of the deadline.</h2><p>Plan your workload, protect your focus, and turn every pending task into progress.</p></div>
+          <div class="hero-orb"><span id="heroProgress">87%</span><small>SEMESTER<br>PROGRESS</small></div>
+        </div>
+        <div class="quick-card"><div class="card-head"><span>Today's focus</span><button class="text-btn" id="startNext">Start next →</button></div><div id="todayFocus"></div></div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-icon pink">!</div><span>Due Soon</span><strong id="statSoon">0</strong><small>next 7 days</small></div>
+        <div class="stat-card"><div class="stat-icon red">!</div><span>Overdue</span><strong id="statOverdue">0</strong><small>needs attention</small></div>
+        <div class="stat-card"><div class="stat-icon cyan">↗</div><span>Active</span><strong id="statActive">0</strong><small>in progress</small></div>
+        <div class="stat-card"><div class="stat-icon green">✓</div><span>Progress</span><strong id="statProgress">0%</strong><small>completion rate</small></div>
+      </div>
+
+      <div class="section-grid">
+        <section class="panel wide"><div class="section-title"><div><span class="eyebrow">PRIORITY QUEUE</span><h3>Today's assignments</h3></div><button class="ghost-btn" data-view="assignments">View all</button></div><div class="assignment-list" id="dashboardAssignments"></div></section>
+        <section class="panel"><div class="section-title"><div><span class="eyebrow">DEADLINE RADAR</span><h3>Coming up</h3></div></div><div class="radar" id="radar"></div></section>
+      </div>
+      <div class="section-grid lower">
+        <section class="panel"><div class="section-title"><div><span class="eyebrow">WORKLOAD INTELLIGENCE</span><h3>Weekly load</h3></div><span class="warning" id="busyWarning"></span></div><div class="bars" id="workloadBars"></div></section>
+        <section class="panel"><div class="section-title"><div><span class="eyebrow">PROGRESS ANALYTICS</span><h3>At a glance</h3></div><button class="ghost-btn" data-view="analytics">Open analytics</button></div><div class="mini-analytics" id="miniAnalytics"></div></section>
+      </div>
+    </section>
+
+    <section class="view" id="assignmentsView">
+      <div class="page-tools">
+        <div class="searchbox"><span>⌕</span><input id="searchInput" placeholder="Search DAA, due tomorrow, high priority..."></div>
+        <select id="sortSelect"><option value="due">Sort: Due date</option><option value="priority">Sort: Priority</option><option value="progress">Sort: Progress</option><option value="subject">Sort: Subject</option></select>
+      </div>
+      <div class="filter-row" id="filterRow">
+        <button class="filter active" data-filter="all">All</button><button class="filter" data-filter="today">Due Today</button><button class="filter" data-filter="week">Due This Week</button><button class="filter" data-filter="overdue">Overdue</button><button class="filter" data-filter="completed">Completed</button><button class="filter" data-filter="high">High Priority</button><button class="filter" data-filter="projects">Projects</button><button class="filter" data-filter="exams">Exams</button><button class="filter" data-filter="labs">Labs</button>
+      </div>
+      <div class="assignment-board" id="assignmentBoard"></div>
+    </section>
+
+    <section class="view" id="calendarView">
+      <div class="calendar-toolbar"><div><span class="eyebrow">ACADEMIC CALENDAR</span><h2 id="calendarTitle">October 2026</h2></div><div class="calendar-actions"><button class="ghost-btn" id="todayCalendar">Today</button><button class="icon-btn" id="prevMonth">‹</button><button class="icon-btn" id="nextMonth">›</button></div></div>
+      <div class="calendar-mode"><button class="cal-mode active" data-cal-mode="month">Month</button><button class="cal-mode" data-cal-mode="week">Week</button><button class="cal-mode" data-cal-mode="day">Day</button><button class="cal-mode" data-cal-mode="semester">Semester</button></div>
+      <div class="calendar-panel" id="calendarPanel"></div>
+    </section>
+
+    <section class="view" id="analyticsView">
+      <div class="analytics-grid">
+        <div class="analytics-hero panel"><span class="eyebrow">SEMESTER HEALTH</span><div class="big-progress"><div class="ring" id="analyticsRing"><span id="analyticsPct">0%</span></div><div><h2 id="analyticsHeadline">Building momentum</h2><p id="analyticsText">Your academic workload will appear here as you add assignments.</p></div></div></div>
+        <div class="metric-card panel"><span>Completed</span><strong id="aCompleted">0</strong><small>assignments finished</small></div>
+        <div class="metric-card panel"><span>Pending</span><strong id="aPending">0</strong><small>still on your board</small></div>
+        <div class="metric-card panel"><span>Overdue</span><strong id="aOverdue">0</strong><small>need recovery</small></div>
+        <div class="metric-card panel"><span>Avg. completion</span><strong id="aAvg">—</strong><small>minutes estimated</small></div>
+        <div class="panel subject-panel"><div class="section-title"><div><span class="eyebrow">SUBJECT BREAKDOWN</span><h3>Completion by subject</h3></div></div><div id="subjectChart"></div></div>
+        <div class="panel productivity-panel"><div class="section-title"><div><span class="eyebrow">WEEKLY PRODUCTIVITY</span><h3>Estimated study load</h3></div></div><div class="bars tall" id="analyticsBars"></div></div>
+      </div>
+    </section>
+
+    <section class="view" id="focusView">
+      <div class="focus-page panel">
+        <div class="focus-copy"><span class="pill cyan">DEEP WORK</span><h2>Focus Mode</h2><p>Choose a task and work in a distraction-free countdown. Completing the session updates assignment progress automatically.</p>
+          <div class="focus-select-wrap"><label>Focus task</label><select id="focusSelect"></select></div>
+          <div class="focus-controls"><button class="primary-btn" id="focusStart">Start focus</button><button class="ghost-btn" id="focusReset">Reset timer</button></div>
+        </div>
+        <div class="timer-card"><div class="timer-ring" id="timerRing"><div><strong id="timerDisplay">25:00</strong><span id="timerLabel">READY</span></div></div><div class="timer-actions"><button id="timerPause" class="ghost-btn">Pause</button><button id="timerBreak" class="ghost-btn">Break 5m</button><button id="timerFinish" class="primary-btn">Finish task</button></div></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="detailDrawer"><button class="drawer-close" id="closeDrawer">×</button><div id="drawerContent"></div></aside>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="assignmentModal">
+    <div class="modal-head"><div><span class="eyebrow">ASSIGNMENT EDITOR</span><h2 id="modalTitle">Add assignment</h2></div><button class="icon-btn" id="closeModal">×</button></div>
+    <form id="assignmentForm">
+      <input type="hidden" id="editId">
+      <div class="form-grid">
+        <label>Subject<input id="fSubject" required placeholder="e.g. DAA"></label>
+        <label>Title<input id="fTitle" required placeholder="e.g. Dynamic Programming"></label>
+        <label class="full">Description<textarea id="fDescription" placeholder="What needs to be done?"></textarea></label>
+        <label>Teacher<input id="fTeacher" placeholder="Faculty name"></label>
+        <label>Type<select id="fType"><option>Assignment</option><option>Project</option><option>Exam</option><option>Lab</option></select></label>
+        <label>Priority<select id="fPriority"><option value="critical">Critical</option><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select></label>
+        <label>Difficulty<select id="fDifficulty"><option>Easy</option><option selected>Medium</option><option>Hard</option></select></label>
+        <label>Due date<input type="date" id="fDueDate" required></label>
+        <label>Due time<input type="time" id="fDueTime" value="23:59"></label>
+        <label>Progress (%)<input type="number" id="fProgress" min="0" max="100" value="0"></label>
+        <label>Estimated minutes<input type="number" id="fMinutes" min="5" step="5" value="60"></label>
+        <label>Tags<input id="fTags" placeholder="arrays, dp, practice"></label>
+        <label>Attachment<input id="fAttachment" placeholder="Optional filename or link"></label>
+      </div>
+      <div class="form-actions"><button type="button" class="ghost-btn" id="cancelForm">Cancel</button><button class="primary-btn" type="submit">Save assignment</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="commandBackdrop"><div class="command-modal"><input id="commandInput" placeholder="Type a command or search assignments..."><div id="commandResults"></div></div></div>
+<div class="toast-stack" id="toastStack"></div>
+<div class="notification-panel" id="notificationPanel"><div class="section-title"><div><span class="eyebrow">NOTIFICATIONS</span><h3>Academic alerts</h3></div><button class="icon-btn" id="closeNotifications">×</button></div><div id="notificationList"></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>

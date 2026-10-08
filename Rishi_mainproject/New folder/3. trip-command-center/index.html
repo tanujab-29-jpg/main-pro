@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07111f" />
+  <title>Trip Command Center — Chennai → Tokyo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">✦</span><div><b>TRIP<span>OS</span></b><small>COMMAND CENTER</small></div></div>
+      <div class="trip-mini"><span class="pulse"></span><span>LIVE TRIP</span><strong>CHENNAI → TOKYO</strong><small>12 DAYS · 18 STOPS</small></div>
+      <nav>
+        <button class="nav-item active" data-target="overview"><span>⌂</span> Overview</button>
+        <button class="nav-item" data-target="itinerary"><span>◷</span> Itinerary</button>
+        <button class="nav-item" data-target="flight"><span>✈</span> Flight path</button>
+        <button class="nav-item" data-target="stay"><span>⌂</span> Stay</button>
+        <button class="nav-item" data-target="budget"><span>◉</span> Budget</button>
+        <button class="nav-item" data-target="packing"><span>◌</span> Packing</button>
+        <button class="nav-item" data-target="documents"><span>▣</span> Vault</button>
+        <button class="nav-item" data-target="weather"><span>☼</span> Weather</button>
+        <button class="nav-item" data-target="explore"><span>⌖</span> Explore</button>
+        <button class="nav-item" data-target="memories"><span>▧</span> Memories</button>
+      </nav>
+      <button class="emergency-btn" id="emergencyBtn"><span>!</span><div><b>EMERGENCY</b><small>Rapid access center</small></div></button>
+      <div class="sidebar-foot"><span>LOCAL MODE</span><span class="status-dot"></span><span id="clock">19:00:00</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <div class="breadcrumb"><span>TRIPS</span><i>/</i><b>TOKYO 2026</b></div>
+        <div class="top-actions"><span class="sync"><span class="status-dot"></span> ALL SYSTEMS SYNCED</span><button class="icon-btn" id="shareBtn" title="Copy trip summary">⌁</button><button class="avatar">R</button></div>
+      </header>
+
+      <section class="hero" id="overview">
+        <div class="hero-copy"><div class="eyebrow"><span class="live-line"></span> MISSION CONTROL · 05 OCT 2026</div><h1>CHENNAI <em>→</em> TOKYO</h1><p>Your entire journey, controlled from one place.</p><div class="hero-meta"><span>12 DAYS</span><span>18 STOPS</span><span>2 TRAVELERS</span><span>UTC+09:00</span></div></div>
+        <div class="readiness"><div class="ring" id="readinessRing"><strong id="readinessValue">87%</strong><small>READY</small></div><div><span>TRIP READINESS</span><b>Departure in 19 days</b><small>All critical items secured</small></div></div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card accent-cyan"><div class="stat-icon">✈</div><div><small>FLIGHT</small><b>CONFIRMED</b><span>AI 172 · Economy</span></div><i>↗</i></article>
+        <article class="stat-card accent-violet"><div class="stat-icon">⌂</div><div><small>HOTEL</small><b>CONFIRMED</b><span>Shinjuku · 11 nights</span></div><i>↗</i></article>
+        <article class="stat-card accent-green"><div class="stat-icon">₹</div><div><small>BUDGET</small><b>₹68,400</b><span><span class="mini-bar"><i style="width:72%"></i></span> 72% allocated</span></div><i>↗</i></article>
+        <article class="stat-card accent-orange"><div class="stat-icon">⌖</div><div><small>PLACES</small><b>18</b><span>6 saved · 12 planned</span></div><i>↗</i></article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel map-panel" id="mapPanel">
+          <div class="panel-head"><div><span class="kicker">LIVE ROUTE</span><h2>Interactive journey map</h2></div><button class="ghost-btn" id="routeBtn">⟲ Recenter</button></div>
+          <div class="map-canvas">
+            <div class="map-grid"></div><div class="map-orbit orbit-a"></div><div class="map-orbit orbit-b"></div>
+            <div class="land land-a"></div><div class="land land-b"></div><div class="land land-c"></div>
+            <svg class="route-svg" viewBox="0 0 800 360" preserveAspectRatio="none"><path d="M90 250 C 220 120, 330 280, 465 160 S 650 100, 730 205"/><path class="route-glow" d="M90 250 C 220 120, 330 280, 465 160 S 650 100, 730 205"/></svg>
+            <button class="map-pin pin-chennai" data-city="CHENNAI"><span>01</span><b>CHENNAI</b></button>
+            <button class="map-pin pin-singapore" data-city="SINGAPORE"><span>02</span><b>SINGAPORE</b></button>
+            <button class="map-pin pin-tokyo selected" data-city="TOKYO"><span>03</span><b>TOKYO</b></button>
+            <div class="map-coords">35.6762° N · 139.6503° E</div><div class="map-label">PACIFIC SECTOR <span>◉</span></div>
+          </div>
+          <div class="map-detail" id="mapDetail"><div><b>TOKYO</b><span>DAY 03 · 3 ACTIVITIES</span></div><strong>₹4,500 <small>EST.</small></strong><p>Shibuya · TeamLab · Tokyo Tower</p></div>
+        </article>
+
+        <article class="panel readiness-panel" id="packing">
+          <div class="panel-head"><div><span class="kicker">PREP STATUS</span><h2>Departure checklist</h2></div><span class="tiny-status">7 / 11 DONE</span></div>
+          <div class="progress-big"><div class="progress-circle"><strong id="packPercent">64%</strong></div><div><b>Almost launch-ready</b><p>Finish the final essentials before departure.</p></div></div>
+          <div class="checklist" id="checklist">
+            <label><input type="checkbox" checked><span>Passport</span><em>READY</em></label><label><input type="checkbox" checked><span>Charger</span><em>READY</em></label><label><input type="checkbox"><span>Jacket</span><em>ADD</em></label><label><input type="checkbox"><span>Camera</span><em>ADD</em></label><label><input type="checkbox"><span>Medicines</span><em>ADD</em></label><label><input type="checkbox" checked><span>Travel adapter</span><em>READY</em></label>
+          </div><button class="wide-btn" id="packingBtn">+ Add packing item</button>
+        </article>
+      </section>
+
+      <section class="two-col" id="itinerary">
+        <article class="panel itinerary-panel"><div class="panel-head"><div><span class="kicker">12-DAY OPERATIONS PLAN</span><h2>Visual itinerary</h2></div><div class="day-tabs" id="dayTabs"><button class="active" data-day="1">01</button><button data-day="2">02</button><button data-day="3">03</button><button data-day="4">04</button><button data-day="5">05</button></div></div><div class="day-title"><div><b id="dayLabel">DAY 01</b><span id="dayLocation">TOKYO · ARRIVAL</span></div><button class="ghost-btn" id="addEventBtn">+ Add event</button></div><div class="timeline" id="timeline"></div></article>
+        <article class="panel weather-panel" id="weather"><div class="panel-head"><div><span class="kicker">FORECAST · DEMO DATA</span><h2>Trip weather</h2></div><span class="tiny-status">TOKYO</span></div><div class="weather-hero"><div><small>MON 12 OCT</small><strong>24°</strong><span>Partly cloudy</span></div><div class="weather-icon">◒</div></div><div class="forecast" id="forecast"></div><div class="weather-note">◌ Pack a light layer · Rain chance peaks Tuesday</div></article>
+      </section>
+
+      <section class="three-col" id="flight">
+        <article class="panel flight-panel"><div class="panel-head"><div><span class="kicker">AI 172 · CONFIRMED</span><h2>Flight timeline</h2></div><span class="status-pill">ON TIME</span></div><div class="flight-route"><div><b>MAA</b><strong>10:20</strong><small>CHENNAI</small></div><div class="flight-line"><span>✈</span><i></i><small>6h 10m</small></div><div><b>NRT</b><strong>21:10</strong><small>TOKYO</small></div></div><div class="layover"><span>✦</span><b>SINGAPORE</b><span>LAYOVER 2H</span></div><div class="flight-footer"><span>12 OCT · ECONOMY</span><button class="ghost-btn" id="boardingBtn">Boarding pass ↗</button></div></article>
+        <article class="panel stay-panel" id="stay"><div class="panel-head"><div><span class="kicker">ACCOMMODATION</span><h2>Shinjuku base</h2></div><span class="status-pill violet">CONFIRMED</span></div><div class="hotel-art"><div class="hotel-grid"></div><div><span>NEON DISTRICT</span><b>SHINJUKU</b></div></div><div class="hotel-info"><b>Hoshino Urban Tokyo</b><span>2-8-1 Shinjuku, Tokyo</span><div class="info-row"><span>CHECK-IN <b>12 OCT</b></span><span>CHECK-OUT <b>23 OCT</b></span><span>ROOM <b>DELUXE TWIN</b></span></div><div class="info-row"><span>PRICE <b>₹20,000</b></span><span>BOOKING <b>#TK-48291</b></span><button id="contactHotel">Contact ↗</button></div></div></article>
+        <article class="panel docs-panel" id="documents"><div class="panel-head"><div><span class="kicker">SECURE VAULT</span><h2>Travel documents</h2></div><span class="lock">⌑</span></div><div class="doc-grid"><button data-doc="PASSPORT"><span>◫</span><b>PASSPORT</b><small>VERIFIED</small></button><button data-doc="FLIGHT TICKET"><span>✈</span><b>FLIGHT TICKET</b><small>READY</small></button><button data-doc="HOTEL BOOKING"><span>⌂</span><b>HOTEL BOOKING</b><small>READY</small></button><button data-doc="TRAVEL INSURANCE"><span>◇</span><b>INSURANCE</b><small>READY</small></button><button data-doc="VISA"><span>▤</span><b>VISA</b><small>VERIFIED</small></button><button class="add-doc" id="addDoc"><span>+</span><b>ADD FILE</b><small>LOCAL ONLY</small></button></div></article>
+      </section>
+
+      <section class="two-col lower" id="budget">
+        <article class="panel budget-panel"><div class="panel-head"><div><span class="kicker">SPEND CONTROL</span><h2>Trip budget</h2></div><button class="ghost-btn" id="expenseBtn">+ Expense</button></div><div class="budget-main"><div class="donut" id="budgetDonut"><div><small>TOTAL</small><strong>₹68,400</strong><span>PLANNED</span></div></div><div class="budget-list"><div><span><i class="dot cyan"></i>Flights</span><b>₹28,000</b></div><div><span><i class="dot violet"></i>Hotels</span><b>₹20,000</b></div><div><span><i class="dot green"></i>Food</span><b>₹8,500</b></div><div><span><i class="dot orange"></i>Transport</span><b>₹5,900</b></div><div><span><i class="dot pink"></i>Activities</span><b>₹6,000</b></div></div></div><div class="budget-foot"><span>₹20,600 remaining</span><b>72% allocated</b></div></article>
+        <article class="panel explore-panel" id="explore"><div class="panel-head"><div><span class="kicker">DISCOVERY GRID</span><h2>Places to explore</h2></div><div class="category-tabs" id="categoryTabs"><button class="active" data-cat="all">ALL</button><button data-cat="food">FOOD</button><button data-cat="culture">CULTURE</button><button data-cat="nature">NATURE</button></div></div><div class="places-grid" id="placesGrid"></div></article>
+      </section>
+
+      <section class="two-col" id="memories">
+        <article class="panel memory-panel"><div class="panel-head"><div><span class="kicker">LOCAL PHOTO ARCHIVE</span><h2>Trip memories</h2></div><button class="ghost-btn" id="photoBtn">+ Upload photos</button><input type="file" id="photoInput" accept="image/*" multiple hidden></div><div class="memory-grid" id="memoryGrid"><div class="memory-card memory-one"><span>DAY 04</span><b>TOKYO</b><small>12 memories</small></div><div class="memory-card memory-two"><span>DAY 06</span><b>KYOTO</b><small>8 memories</small></div><div class="memory-card memory-three"><span>DAY 09</span><b>OSAKA</b><small>15 memories</small></div></div></article>
+        <article class="panel emergency-mini"><div class="panel-head"><div><span class="kicker">RAPID RESPONSE</span><h2>Emergency center</h2></div><span class="danger-dot"></span></div><p>Keep essential contacts one tap away while traveling.</p><button class="emergency-large" id="emergencyBtn2">OPEN EMERGENCY CENTER <span>→</span></button><div class="contact-strip"><span>POLICE <b>110</b></span><span>AMBULANCE <b>119</b></span><span>HOTEL <b>↗</b></span></div></article>
+      </section>
+      <footer><span>TRIPOS · COMMAND CENTER v1.0</span><span>LOCAL-FIRST FRONTEND PROTOTYPE · DEMO DATA</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop"><div class="modal" id="modal"></div></div>
+  <div class="toast" id="toast">Saved locally</div>
+  <script src="script.js"></script>
+</body>
+</html>
