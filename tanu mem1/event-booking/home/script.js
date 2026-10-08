@@ -1,1 +1,0 @@
-function notify(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),2200)}function pay(m){notify(m+' selected — demo payment successful')}function confirmSelection(){notify('Selection saved — continuing to checkout')}

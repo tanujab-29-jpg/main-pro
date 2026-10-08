@@ -1,2 +1,0 @@
-function notify(m){const t=document.getElementById('toast');if(!t)return;t.textContent=m;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),2200)}
-function pay(method){const seats=JSON.parse(localStorage.getItem('cinegoSeats')||'[]');if(!seats.length){notify('Please select seats first');setTimeout(()=>location.href='../seats/index.html',700);return}localStorage.setItem('cinegoPayment',method);notify(method+' payment successful');setTimeout(()=>location.href='../home/index.html?booking=confirmed',900)}
